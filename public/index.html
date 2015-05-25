@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="triviaApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trivia Blitz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body ng-controller="TriviaController">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Trivia Blitz!</h1>
+      </div>
+      <div class="container" ng-hide="game">
+        <form class="username" ng-submit="startGame()">
+          <h3>What's your name?</h3>
+          <div class="form-group">
+            <input type="text" class="form-control" name="username" ng-model="username">
+          </div>
+        </form>
+      </div>
+      <div class="container" ng-show="game" ng-hide="gameOver">
+        <div class="choices">
+          <p>{{currentQuestion.question}}</p>
+          <button type="button" class="btn btn-lg btn-primary" ng-repeat="choice in currentQuestion.choices" ng-click="checkAnswer(choice)">{{choice}}</button>
+        </div>
+      </div>
+    </div>
+    <div class="container" ng-show="gameOver">
+      <div class="alert alert-info" role="alert"><h1>You got {{score}} right, {{username}}!</h1></div>
+    </div>
+  </body>
+</html>

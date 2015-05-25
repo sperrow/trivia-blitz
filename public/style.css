@@ -1,0 +1,13 @@
+body {
+  background-color: #6DF5F7;
+}
+
+.username input {
+  margin-top: 20px;
+  width: 50%;
+}
+
+.choices button {
+  margin-right: 10px;
+  width: 200px;
+}
